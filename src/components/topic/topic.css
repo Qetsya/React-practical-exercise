@@ -1,0 +1,19 @@
+.topic-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 3rem;
+  }
+  
+  .topic-title {
+    font-size: 4rem;
+    color: rgb(35, 79, 77);
+  }
+  
+  .topic-text {
+    font-size: 2rem;
+    padding: 0 10rem;
+    text-align: center;
+  }
+  

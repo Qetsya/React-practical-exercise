@@ -1,9 +1,8 @@
-import { useState } from "react";
-
+import styles from "./navbar.css"
 const NavbarButton = (props) => {
   return (
-    //padaryt 1 priima label ir onClick
     <button
+    style={styles}
       label="home"
       className="navbar-button-style"
       id="home-btn"

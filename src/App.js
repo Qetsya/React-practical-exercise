@@ -1,17 +1,25 @@
-import './App.css';
-import Layout from './pages/Layout';
-import Navbar from './components/Navbar';
-import HomePage from './pages/HomePage';
+import { useState } from "react";
+import Layout from "./components/layout/Layout";
+import Navbar from "./components/navbar/Navbar";
+import HomePage from "./pages/homePage/HomePage";
+import GalleryPage from "./pages/galleryPage/GalleryPage";
+import CustomerSupportPage from "./pages/customerSupportPage/CustomerSupportPage";
 
 function App() {
+  const [activePage, setActivePage] = useState("Home");
+
+  const getActivePage = (value) => {
+    setActivePage(value);
+  };
 
   return (
     <div>
-      <Navbar />
+      <Navbar onChange={getActivePage} />
       <Layout>
-        <HomePage />
+        {activePage === "Home" && <HomePage />}
+        {activePage === "Gallery" && <GalleryPage />}
+        {activePage === "Customer support" && <CustomerSupportPage />}
       </Layout>
-
     </div>
   );
 }

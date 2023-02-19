@@ -1,6 +1,8 @@
-const HiddenTopic = () => {
+import topicStyle from "../topic/topic.css"
+
+const LearnMoreTopic = () => {
   return (
-    <div className="topic-container hidden" id="topic-container-learn-more">
+    <div className="topic-container" id="topic-container-learn-more" style={topicStyle}>
       <h2 className="topic-title">What is Modern Art Museum?</h2>
       <p className="topic-text">
         One of the largest private virtual art collections, the museum
@@ -13,4 +15,4 @@ const HiddenTopic = () => {
   );
 };
 
-export default HiddenTopic;
+export default LearnMoreTopic;

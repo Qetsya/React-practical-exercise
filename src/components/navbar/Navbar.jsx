@@ -1,9 +1,9 @@
+import styles from "./navbar.css"
 import NavbarButton from "./NavbarButton";
 import { useState } from "react";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [activePage, setActivePage] = useState("Home");
-  console.log(activePage);
 
   const getHomeState = () => {
     setActivePage("Home");
@@ -14,16 +14,18 @@ const Navbar = () => {
   };
 
   const getCustomerState = () => {
-    setActivePage("Customer upport");
+    setActivePage("Customer support");
   };
+  
+  props.onChange(activePage);
 
   return (
-    <div className="navbar-style">
-      <div className="navbar-logo">WELCOME</div>
-      <div className="navbar-button-container">
+    <div className="navbar-style" style={styles}>
+      <div className="navbar-logo" style={styles}>WELCOME</div>
+      <div className="navbar-button-container" style={styles}>
         <NavbarButton onClick={getHomeState} label={"Home"} />
         <NavbarButton onClick={getGalleryState} label={"Gallery"} />
-        <NavbarButton onClick={getCustomerState} label={"Customer upport"} />
+        <NavbarButton onClick={getCustomerState} label={"Customer support"} />
       </div>
     </div>
   );
