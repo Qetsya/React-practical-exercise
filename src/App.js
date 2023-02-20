@@ -1,3 +1,4 @@
+import data from "./data/image_list.json"
 import { useState } from "react";
 import Layout from "./components/layout/Layout";
 import Navbar from "./components/navbar/Navbar";
