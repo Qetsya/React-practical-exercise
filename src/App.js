@@ -1,25 +1,45 @@
-import data from "./data/image_list.json"
-import { useState } from "react";
+import { useMemo } from "react";
+import { Routes } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Navbar from "./components/navbar/Navbar";
 import HomePage from "./pages/homePage/HomePage";
 import GalleryPage from "./pages/galleryPage/GalleryPage";
 import CustomerSupportPage from "./pages/customerSupportPage/CustomerSupportPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage"
+import { routes } from "./components/constants/routes";
 
 function App() {
-  const [activePage, setActivePage] = useState("Home");
+  const headerLinks = useMemo(() => {
+    return [
+      {
+        to: routes.homePage,
+        label: "Home",
+      },
+      {
+        to: routes.gallery,
+        label: "Gallery",
+      },
+      {
+        to: routes.customerSupport,
+        label: "Customer support",
+      },
+    ];
+  }, [])
 
-  const getActivePage = (value) => {
-    setActivePage(value);
-  };
+
+
 
   return (
     <div>
-      <Navbar onChange={getActivePage} />
-      <Layout>
-        {activePage === "Home" && <HomePage />}
-        {activePage === "Gallery" && <GalleryPage />}
-        {activePage === "Customer support" && <CustomerSupportPage />}
+      <Navbar pages={headerLinks} />
+      <Layout >
+        <Routes>
+          <Route path={routes.homePage} element={<HomePage />} />
+          <Route path={routes.gallery} element={<GalleryPage />} />
+          <Route path={routes.customerSupport} element={<CustomerSupportPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </Layout>
     </div>
   );

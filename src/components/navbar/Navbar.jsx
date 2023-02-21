@@ -1,31 +1,22 @@
-import styles from "./navbar.css"
-import NavbarButton from "./NavbarButton";
-import { useState } from "react";
+import styles from "./navbar.css";
+import { Link } from "react-router-dom";
 
-const Navbar = (props) => {
-  const [activePage, setActivePage] = useState("Home");
-
-  const getHomeState = () => {
-    setActivePage("Home");
-  };
-
-  const getGalleryState = () => {
-    setActivePage("Gallery");
-  };
-
-  const getCustomerState = () => {
-    setActivePage("Customer support");
-  };
-  
-  props.onChange(activePage);
-
+const Navbar = ({ pages }) => {
   return (
     <div className="navbar-style" style={styles}>
-      <div className="navbar-logo" style={styles}>WELCOME</div>
+      <div className="navbar-logo" style={styles}>
+        WELCOME
+      </div>
       <div className="navbar-button-container" style={styles}>
-        <NavbarButton onClick={getHomeState} label={"Home"} />
-        <NavbarButton onClick={getGalleryState} label={"Gallery"} />
-        <NavbarButton onClick={getCustomerState} label={"Customer support"} />
+        {pages?.map((page) => {
+          return (
+            <button style={styles}>
+              <Link key={page.to} to={page.to}>
+                {page.label}
+              </Link>
+            </button>
+          );
+        })}
       </div>
     </div>
   );
