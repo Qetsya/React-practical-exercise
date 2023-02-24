@@ -1,4 +1,6 @@
+import CustomerSupportForm from "../../components/customerSupportForm/CustomerSupportForm"
+
 const CustomerSupportPage = () => {
-    return <p>Customer Support Page</p>
+    return <CustomerSupportForm />
 }
 export default CustomerSupportPage;

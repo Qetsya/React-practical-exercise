@@ -11,3 +11,10 @@
   height: 100%;
   object-fit: cover;
 }
+
+.author {
+  font-size: 2rem;
+  text-align: center;
+  padding: 0.5rem;
+  color: rgb(3, 72, 60);
+}

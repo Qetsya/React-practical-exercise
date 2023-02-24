@@ -1,0 +1,13 @@
+.title {
+    font-size: 4rem;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    color: rgb(3, 72, 60);
+}
+
+.text {
+    font-size: 2rem;
+    text-align: center;
+    padding: 2rem 0;
+}

@@ -15,14 +15,14 @@
     font-weight: 600;
   }
   
-  .navbar-button-container {
+  .navbar-link-container {
     display: flex;
     align-self: flex-end;
     gap: 3rem;
     padding-bottom: 1rem;
   }
   
-  .navbar-button-style {
+  .navbar-link-style {
     padding: 1rem 2rem;
     font-size: 1.5rem;
     font-weight: 600;
@@ -33,5 +33,10 @@
     color: rgb(85, 194, 189);
     background-color: rgb(246, 240, 190);
   
+    text-decoration: none;
     cursor: pointer;
+  }
+
+  .link-active {
+    text-decoration: underline;
   }

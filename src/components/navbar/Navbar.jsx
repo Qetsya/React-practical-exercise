@@ -1,5 +1,5 @@
 import styles from "./navbar.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = ({ pages }) => {
   return (
@@ -7,14 +7,14 @@ const Navbar = ({ pages }) => {
       <div className="navbar-logo" style={styles}>
         WELCOME
       </div>
-      <div className="navbar-button-container" style={styles}>
+      <div className="navbar-link-container" style={styles}>
         {pages?.map((page) => {
           return (
-            <button style={styles}>
-              <Link key={page.to} to={page.to}>
+              <NavLink 
+              className={({ isActive }) => (isActive ? "link-active navbar-link-style" : "navbar-link-style")}
+              key={page.to} to={page.to}>
                 {page.label}
-              </Link>
-            </button>
+              </NavLink>
           );
         })}
       </div>

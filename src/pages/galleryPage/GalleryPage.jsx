@@ -3,6 +3,7 @@ import { useState } from "react";
 import Container from "../../components/container/Container";
 import Grid from "../../components/grid/Grid.module";
 import Image from "../../components/Image/Image";
+import GalleryTopic from "../../components/galleryTopic/GalleryTopic"
 
 const dataUrl = "https://picsum.photos/v2/list";
 
@@ -22,7 +23,7 @@ const GalleryPage = () => {
 
   return (
     <div>
-      <p>Gallery Page</p>
+     <GalleryTopic/>
       <Container>
         {errMessage && <h1>{errMessage}</h1>}
         {!errMessage && (
