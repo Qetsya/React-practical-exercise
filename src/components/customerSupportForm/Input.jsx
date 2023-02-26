@@ -1,8 +1,14 @@
-const Input = ({ placeholder, type, label, onCHange, Id, error }) => {
+const Input = ({ placeholder, type, label, Id, error }) => {
+  const getValue = (e) => {
+    const value = e.target.value;
+    return value;
+  };
+
   return (
     <div>
       <label htmlFor={Id}>{label}</label>
       <input
+        onChange={getValue}
         placeholder={placeholder}
         type={type}
         label={label}
