@@ -1,19 +1,30 @@
-const Textarea = ({ placeholder, label, Id, Error }) => {
+import { useState } from "react";
+
+import style from "./CustomerForm.module.css"
+
+const Textarea = ({ placeholder, label, Id, error, onChange }) => {
+
+  const [value, setValue] = useState("");
+
   const getValue = (e) => {
-    const value = e.target.value;
-    return value;
+    const newValue = e.target.value;
+    setValue(newValue);
+    // console.log("Textarea - getValue is " + newValue);
+    return newValue;
   };
 
   return (
-    <div>
-      <label htmlFor={Id}>{label}</label>
+    <div className={style.root}>
+{      {label} && <label className={style.label} htmlFor={Id}>{label}</label>}
       <textarea
-        onChange={getValue}
-        name={label}
+        onChange={onchange?.(getValue)}
+        label={label}
         id={Id}
         cols="30"
         rows="15"
         placeholder={placeholder}
+        error={error}
+        className={style.input}
       ></textarea>
     </div>
   );

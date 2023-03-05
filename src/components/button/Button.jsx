@@ -1,4 +1,4 @@
-import styles from "./button.css"
+import style from "./Button.module.css"
 import { useState } from "react";
 
 const Button = (props) => {
@@ -12,8 +12,8 @@ const Button = (props) => {
   };
 
   return (
-    <div className="button-container" style={styles}>
-      <button type="button" className="button-style" onClick={changeButtonText} style={styles}>
+    <div className={style.root}>
+      <button type="button" className={style.button} onClick={changeButtonText}>
       {buttonText}
     </button>
     </div>

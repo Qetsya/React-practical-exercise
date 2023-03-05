@@ -2,7 +2,8 @@ import { useState } from "react";
 import Input from "./Input";
 import Textarea from "./TextArea";
 import CustomerTopic from "../customerTopic/CustomerTopic";
-// import { getValue } from "@testing-library/user-event/dist/utils";
+
+import style from "./CustomerForm.module.css";
 
 const CustomerSupportForm = ({ saveForm }) => {
   const [fullName, setFullName] = useState("");
@@ -16,46 +17,93 @@ const CustomerSupportForm = ({ saveForm }) => {
       message: message,
     };
     saveForm.push(data);
-    console.log(saveForm);
+
+    const isInputEmpty = () => {
+      // Kaip iskelti
+      if (fullName === "") {
+        const input = document.getElementById("fullName");
+        input.style.border = "1px solid red";
+      }
+      if (email === "") {
+        const input = document.getElementById("email");
+        input.style.border = "1px solid red";
+      }
+      if (message === "") {
+        const input = document.getElementById("message");
+        input.style.border = "1px solid red";
+      }
+    };
+    isInputEmpty();
   };
 
-  const getName = (event) => {
-    setFullName(event.target.value);
+  // const handleFormSubmit = (event) => {
+  //   event.preventDefault();
+  //   console.log(event);
+
+  //   const formData = new FormData(event.target);
+
+  //   console.log("test", Object.fromEntries(formData.entries()))
+
+  //   for (let [key, value] of formData.entries()) {
+  //     console.log("Form entries: ", key, value);
+  //     saveForm[key] = value;
+  //   }
+
+  //   console.log("handleFormSubmit - data: ", saveForm);
+  // } NEVEIKIA
+
+  const getName = (value) => {
+    const name = value;
+    // console.log("CustomerSupportForm - getName value " + name);
+    setFullName(name);
   };
-  const getEmail = (event) => {
-    setEmail(event.target.value);
+
+  const getEmail = (value) => {
+    const email = value;
+    // console.log("CustomerSupportForm - getEmail value " + email);
+    setEmail(email);
   };
-  const getMessage = (event) => {
-    setMessage(event.target.value);
+
+  const getMessage = (value) => {
+    const message = value;
+    // console.log("CustomerSupportForm - getMessage value " + message);
+    setMessage(message);
   };
 
   return (
-    <div>
+    <div className={style.root}>
       <CustomerTopic />
+      {/* <form onSubmit={handleFormSubmit}> NEVEIKIA */}
       <Input
         onChange={getName}
         required
-        placeholder={"Full name"}
-        label={"Full name"}
-        type={"text"}
-        Id={fullName}
+        placeholder="Full name"
+        label="Full name"
+        type="text"
+        Id="fullName"
+        error="This field is required"
       />
       <Input
         onChange={getEmail}
         required
-        placeholder={"Email"}
-        label={"Email"}
-        type={"email"}
-        Id={email}
+        placeholder="Email"
+        label="Email"
+        type="email"
+        Id="email"
+        error="This field is required"
       />
       <Textarea
         required
-        placeholder={"Your message to us"}
-        label={"Your message to us"}
+        placeholder="Your message to us"
+        label="Your message to us"
         onChange={getMessage}
-        Id={message}
+        Id="message"
+        error="This field is required"
       />
-      <button onClick={onSave}>Save</button>
+      <button type="submit" className={style.button} onClick={onSave}>
+        Save
+      </button>
+      {/* </form> */}
     </div>
   );
 };
