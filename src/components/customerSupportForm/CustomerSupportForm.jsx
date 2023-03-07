@@ -2,7 +2,6 @@ import { useState } from "react";
 import Input from "./Input";
 import Textarea from "./TextArea";
 import CustomerTopic from "../customerTopic/CustomerTopic";
-// import { getValue } from "@testing-library/user-event/dist/utils";
 
 const CustomerSupportForm = ({ saveForm }) => {
   const [fullName, setFullName] = useState("");
