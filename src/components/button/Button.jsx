@@ -4,11 +4,14 @@ import { useState } from "react";
 const Button = (props) => {
   const [buttonText, setButtonText] = useState("Learn more");
 
+
+
   const changeButtonText = () => {
-    buttonText === "Learn more"
-      ? setButtonText("Show less")
-      : setButtonText("Learn more");
-      props.onClick(buttonText);
+   const next = buttonText === "Learn more"
+      ? "Show less"
+      : "Learn more";
+      setButtonText(next);
+      props.onClick(next);
   };
 
   return (

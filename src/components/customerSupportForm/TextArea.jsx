@@ -7,9 +7,14 @@ const Textarea = ({ placeholder, label, Id, error, onChange }) => {
   const [value, setValue] = useState("");
 
   const getValue = (e) => {
+    // console.log(`Textarea - event value: `, e);
     const newValue = e.target.value;
     setValue(newValue);
-    // console.log("Textarea - getValue is " + newValue);
+
+    if(onChange) {
+      onChange(newValue);
+    }
+    
     return newValue;
   };
 
@@ -17,7 +22,7 @@ const Textarea = ({ placeholder, label, Id, error, onChange }) => {
     <div className={style.root}>
 {      {label} && <label className={style.label} htmlFor={Id}>{label}</label>}
       <textarea
-        onChange={onchange?.(getValue)}
+        onChange={getValue}
         label={label}
         id={Id}
         cols="30"

@@ -4,7 +4,7 @@ import Button from "../../components/button/Button";
 import LearnMoreTopic from "../../components/learnMoreTopic/LearnMoreTopic";
 
 const HomePage = () => {
-  const [buttonText, setButtonText] = useState("Learn more");
+  const [buttonText, setButtonText] = useState();
 
   const changeContent = (value) => {
     console.log(value);

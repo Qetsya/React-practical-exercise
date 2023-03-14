@@ -17,6 +17,7 @@ const CustomerSupportForm = ({ saveForm }) => {
       message: message,
     };
     saveForm.push(data);
+    console.log(saveForm)
 
     const isInputEmpty = () => {
       // Kaip iskelti
@@ -54,19 +55,19 @@ const CustomerSupportForm = ({ saveForm }) => {
 
   const getName = (value) => {
     const name = value;
-    // console.log("CustomerSupportForm - getName value " + name);
+    console.log("CustomerSupportForm - getName value " + name);
     setFullName(name);
   };
 
   const getEmail = (value) => {
     const email = value;
-    // console.log("CustomerSupportForm - getEmail value " + email);
+    console.log("CustomerSupportForm - getEmail value " + email);
     setEmail(email);
   };
 
   const getMessage = (value) => {
     const message = value;
-    // console.log("CustomerSupportForm - getMessage value " + message);
+    console.log("CustomerSupportForm - getMessage value " + message);
     setMessage(message);
   };
 

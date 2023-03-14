@@ -26,7 +26,7 @@ const Input = ({ placeholder, type, label, Id, error, onChange }) => {
         error={error}
         className={style.input}
       />
-        {/* {value === "" ? (<p>{error}</p>) : false} */}
+        {/* {!value ? (<p>{error}</p>) : false} */}
 
     </div>
   );
