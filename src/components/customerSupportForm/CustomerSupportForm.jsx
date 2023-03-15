@@ -20,7 +20,7 @@ const CustomerSupportForm = ({ saveForm }) => {
     console.log(saveForm)
 
     const isInputEmpty = () => {
-      // Kaip iskelti
+      // Kaip iskelti -- BLOGAI 
       if (fullName === "") {
         const input = document.getElementById("fullName");
         input.style.border = "1px solid red";
@@ -82,7 +82,7 @@ const CustomerSupportForm = ({ saveForm }) => {
         label="Full name"
         type="text"
         Id="fullName"
-        error="This field is required"
+        // error="This field is required" padaryt su state
       />
       <Input
         onChange={getEmail}
@@ -91,7 +91,7 @@ const CustomerSupportForm = ({ saveForm }) => {
         label="Email"
         type="email"
         Id="email"
-        error="This field is required"
+        // error="This field is required"
       />
       <Textarea
         required
@@ -99,7 +99,7 @@ const CustomerSupportForm = ({ saveForm }) => {
         label="Your message to us"
         onChange={getMessage}
         Id="message"
-        error="This field is required"
+        // error="This field is required"
       />
       <button type="submit" className={style.button} onClick={onSave}>
         Save

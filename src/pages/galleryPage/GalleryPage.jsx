@@ -19,7 +19,10 @@ function getImages() {
 };
 
 function onNextPage(list) {
+  console.log(list._links.next.href)
+
   return fetch(list._links.next.href, {
+    
     header: {
       "X-Xapp-Token":
         "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsInN1YmplY3RfYXBwbGljYXRpb24iOiI2NDBhMmZiYTlmOWI0MTAwMGU0NjAwMGMiLCJleHAiOjE2NzkzMTQ4ODcsImlhdCI6MTY3ODcxMDA4NywiYXVkIjoiNjQwYTJmYmE5ZjliNDEwMDBlNDYwMDBjIiwiaXNzIjoiR3Jhdml0eSIsImp0aSI6IjY0MGYxNTQ3MWNiOWM2MDAwYzNlNjYwMCJ9.HokRaOx-XuLwif29hOy_nxR6wdUJ-HRf7JT96aI7WMo",
@@ -43,7 +46,7 @@ const GalleryPage = () => {
   }, []);
 
   function nextPage() {
-    console.log(imageList)//undefined
+    console.log(imageList)
     onNextPage(imageList)
     .then((imageData) => setImageList(imageData))
     .then((imageData, imageList) => console.log(imageData, imageList))
@@ -57,7 +60,7 @@ const GalleryPage = () => {
         {errMessage && <h1>{errMessage}</h1>}
         {!errMessage && (
           <Grid columns={3}>
-            {imageList?._embedded.artworks.map((artwork) => {
+            {imageList?._embedded?.artworks.map((artwork) => {
               return (
                 <Image src={artwork._links.image.href.replace("{image_version}", "medium")} alt={artwork.title} key={artwork.id} />
               );

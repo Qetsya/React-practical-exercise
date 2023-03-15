@@ -26,7 +26,8 @@ const Input = ({ placeholder, type, label, Id, error, onChange }) => {
         error={error}
         className={style.input}
       />
-        {/* {!value ? (<p>{error}</p>) : false} */}
+        {/* {error ? (<p>{error}</p>) : false} naudoti && ir duoti inputui error props */}
+        
 
     </div>
   );
