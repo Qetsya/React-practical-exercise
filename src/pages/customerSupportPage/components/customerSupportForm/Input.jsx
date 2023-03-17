@@ -9,13 +9,15 @@ const Input = ({ placeholder, type, label, Id, error, onChange }) => {
     setValue(newValue);
     // console.log("Input - getValue is " + newValue);
     onChange?.(newValue);
-    return newValue;
   };
 
   return (
     <div className={style.root}>
-      {{label} && <label className={style.label} htmlFor={Id}>{label}</label>}
-
+      {{ label } && (
+        <label className={style.label} htmlFor={Id}>
+          {label}
+        </label>
+      )}
       <input
         onChange={getValue}
         type={type}
@@ -24,11 +26,10 @@ const Input = ({ placeholder, type, label, Id, error, onChange }) => {
         label={label}
         id={Id}
         error={error}
-        className={style.input}
+        className={
+          error ? `${style.input} ${style.activeError}` : `${style.input}`
+        }
       />
-        {/* {error ? (<p>{error}</p>) : false} naudoti && ir duoti inputui error props */}
-        
-
     </div>
   );
 };

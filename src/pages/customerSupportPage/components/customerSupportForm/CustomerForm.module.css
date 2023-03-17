@@ -1,0 +1,43 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem;
+
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.button {
+  padding: 1.5rem 2.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  border: none;
+  border-radius: 5px;
+
+  background-color: rgb(35, 79, 77);
+  color: rgb(85, 194, 189);
+
+  cursor: pointer;
+}
+
+.input {
+  width: 100%;
+  resize: none;
+  font-size: 1.5rem;
+}
+
+.label {
+  font-size: 1.5rem;
+}
+
+.form_container {
+  max-width: 500px;
+}
+
+.activeError {
+  border: 1px solid red;
+}

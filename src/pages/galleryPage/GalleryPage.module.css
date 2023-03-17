@@ -1,0 +1,10 @@
+.icon_container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.icons {
+  font-size: 100px;
+  color: rgb(2, 221, 221);
+}

@@ -1,9 +1,8 @@
 import { useState } from "react";
 
-import style from "./CustomerForm.module.css"
+import style from "./CustomerForm.module.css";
 
 const Textarea = ({ placeholder, label, Id, error, onChange }) => {
-
   const [value, setValue] = useState("");
 
   const getValue = (e) => {
@@ -11,16 +10,20 @@ const Textarea = ({ placeholder, label, Id, error, onChange }) => {
     const newValue = e.target.value;
     setValue(newValue);
 
-    if(onChange) {
+    if (onChange) {
       onChange(newValue);
     }
-    
+
     return newValue;
   };
 
   return (
     <div className={style.root}>
-{      {label} && <label className={style.label} htmlFor={Id}>{label}</label>}
+      {{ label } && (
+        <label className={style.label} htmlFor={Id}>
+          {label}
+        </label>
+      )}
       <textarea
         onChange={getValue}
         label={label}
@@ -29,7 +32,9 @@ const Textarea = ({ placeholder, label, Id, error, onChange }) => {
         rows="15"
         placeholder={placeholder}
         error={error}
-        className={style.input}
+        className={
+          error ? `${style.input} ${style.activeError}` : `${style.input}`
+        }
       ></textarea>
     </div>
   );

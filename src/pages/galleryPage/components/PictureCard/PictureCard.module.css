@@ -1,13 +1,20 @@
 .root {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .container {
   width: 100%;
   padding-top: 100%;
   position: relative;
+}
+
+.author_container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .image {
