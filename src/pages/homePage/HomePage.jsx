@@ -8,7 +8,6 @@ const HomePage = () => {
   const [buttonText, setButtonText] = useState();
 
   const changeContent = (value) => {
-    console.log(value);
     const buttonValue = value;
     setButtonText(buttonValue);
   };

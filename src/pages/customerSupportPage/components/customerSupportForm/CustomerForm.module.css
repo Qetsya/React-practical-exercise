@@ -41,3 +41,7 @@
 .activeError {
   border: 1px solid red;
 }
+
+.activeLabelError {
+  color: red;
+}

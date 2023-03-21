@@ -1,12 +1,12 @@
 import { useState } from "react";
 import style from "./CustomerForm.module.css";
 
-const Input = ({ placeholder, type, label, Id, error, onChange }) => {
-  const [value, setValue] = useState("");
+const Input = ({ placeholder, type, label, Id, error, onChange, value }) => {
+  const [inputValue, setInputValue] = useState("");
 
   const getValue = (e) => {
     const newValue = e.target.value;
-    setValue(newValue);
+    setInputValue(newValue);
     // console.log("Input - getValue is " + newValue);
     onChange?.(newValue);
   };
@@ -14,7 +14,11 @@ const Input = ({ placeholder, type, label, Id, error, onChange }) => {
   return (
     <div className={style.root}>
       {{ label } && (
-        <label className={style.label} htmlFor={Id}>
+        <label 
+        className={
+          error ? `${style.label} ${style.activeLabelError}` : `${style.label}`
+        }
+         htmlFor={Id}>
           {label}
         </label>
       )}

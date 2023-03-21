@@ -2,25 +2,27 @@ import { useState } from "react";
 
 import style from "./CustomerForm.module.css";
 
-const Textarea = ({ placeholder, label, Id, error, onChange }) => {
-  const [value, setValue] = useState("");
+const Textarea = ({ placeholder, label, Id, error, onChange, value }) => {
+  const [inputValue, setInputValue] = useState("");
 
   const getValue = (e) => {
     // console.log(`Textarea - event value: `, e);
     const newValue = e.target.value;
-    setValue(newValue);
+    setInputValue(newValue);
 
     if (onChange) {
       onChange(newValue);
     }
-
-    return newValue;
   };
 
   return (
     <div className={style.root}>
       {{ label } && (
-        <label className={style.label} htmlFor={Id}>
+        <label 
+        className={
+          error ? `${style.label} ${style.activeLabelError}` : `${style.label}`
+          } 
+          htmlFor={Id}>
           {label}
         </label>
       )}
@@ -32,6 +34,7 @@ const Textarea = ({ placeholder, label, Id, error, onChange }) => {
         rows="15"
         placeholder={placeholder}
         error={error}
+        value={value}
         className={
           error ? `${style.input} ${style.activeError}` : `${style.input}`
         }

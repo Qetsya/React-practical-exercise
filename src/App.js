@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
@@ -11,6 +11,8 @@ import { routes } from "./components/constants/routes";
 import ArtworkPage from "./pages/ArtworkPage/ArtworkPage";
 
 function App() {
+  const [artworkArray, setArtwokArray] = useState([]);
+
   const headerLinks = useMemo(() => {
     return [
       {
@@ -28,15 +30,21 @@ function App() {
     ];
   }, [])
 
+const artworkData = async (value) => {
+  const data = await value;
+  setArtwokArray(data);
+  console.log(`app getArtwork`, artworkArray)
+}
+
   return (
     <div>
       <Navbar pages={headerLinks} />
       <Layout >
         <Routes>
           <Route path={routes.homePage} element={<HomePage />} />
-          <Route path={routes.gallery} element={<GalleryPage />} />
+          <Route path={routes.gallery} element={<GalleryPage getArtwork={artworkData}/>} />
           <Route path={routes.customerSupport} element={<CustomerSupportPage />} />
-          <Route path={routes.artworkPage} element={ArtworkPage} />
+          <Route path={routes.artworkPage} element={<ArtworkPage passArtworkData={artworkArray} />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Layout>

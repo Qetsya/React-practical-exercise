@@ -8,8 +8,14 @@ import containerStyle from "../../components/container/container.module.css";
 import { useImageData } from "./service/useImageData";
 import { SiWolfram } from "react-icons/si";
 
-const GalleryPage = () => {
+const GalleryPage = ({getArtwork}) => {
   const { artworkData, errMessage, loading, nextPage } = useImageData();
+
+  console.log(`galleryPage artworkData `,artworkData)
+  if(artworkData) {
+    getArtwork(artworkData);
+  }
+  // getArtwork(artworkData);
 
   return (
     <div className={containerStyle.root}>
@@ -28,6 +34,7 @@ const GalleryPage = () => {
                   )}
                   alt={artwork.title}
                   key={artwork.id}
+                  id={artwork.id}
                 />
               );
             })}

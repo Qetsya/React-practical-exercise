@@ -1,8 +1,10 @@
 import CustomerSupportForm from "./components/customerSupportForm/CustomerSupportForm";
 
-const data = [];
+const saveForm = (value) => {
+console.log(value)
+}
 
 const CustomerSupportPage = () => {
-  return <CustomerSupportForm onSave={data} />;
+  return <CustomerSupportForm onSave={saveForm} />;
 };
 export default CustomerSupportPage;

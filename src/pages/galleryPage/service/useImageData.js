@@ -19,7 +19,7 @@ export const useImageData = () => {
         })
             .then((response) => response.json())
             .then((imageData) => {
-                console.log("nextPage - imageData: ", imageData);
+                // console.log("nextPage - imageData: ", imageData);
                 setArtworkData([...artworkData, ...imageData._embedded.artworks]);
                 setUrl(imageData._links.next.href);
             })
