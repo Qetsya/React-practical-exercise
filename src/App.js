@@ -13,6 +13,7 @@ import ArtworkPage from "./pages/ArtworkPage/ArtworkPage";
 function App() {
   const [artworkArray, setArtwokArray] = useState([]);
 
+  //ISKELTI I KT FAILA
   const headerLinks = useMemo(() => {
     return [
       {
@@ -30,11 +31,11 @@ function App() {
     ];
   }, [])
 
-const artworkData = async (value) => {
-  const data = await value;
-  setArtwokArray(data);
-  console.log(`app getArtwork`, artworkArray)
-}
+  const artworkData = async (value) => {
+    const data = await value;
+    setArtwokArray(data);
+    console.log(`app getArtwork`, artworkArray)
+  }
 
   return (
     <div>
@@ -42,7 +43,7 @@ const artworkData = async (value) => {
       <Layout >
         <Routes>
           <Route path={routes.homePage} element={<HomePage />} />
-          <Route path={routes.gallery} element={<GalleryPage getArtwork={artworkData}/>} />
+          <Route path={routes.gallery} element={<GalleryPage getArtwork={artworkData} />} />
           <Route path={routes.customerSupport} element={<CustomerSupportPage />} />
           <Route path={routes.artworkPage} element={<ArtworkPage passArtworkData={artworkArray} />} />
           <Route path="*" element={<NotFoundPage />} />

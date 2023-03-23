@@ -8,50 +8,50 @@ import containerStyle from "../../components/container/container.module.css";
 import { useImageData } from "./service/useImageData";
 import { SiWolfram } from "react-icons/si";
 
-const GalleryPage = ({getArtwork}) => {
+const GalleryPage = ({ getArtwork }) => {
   const { artworkData, errMessage, loading, nextPage } = useImageData();
 
-  console.log(`galleryPage artworkData `,artworkData)
-  if(artworkData) {
+  //delete
+  if (artworkData) {
     getArtwork(artworkData);
   }
-  // getArtwork(artworkData);
+
+  if (loading) {
+    return (
+      <div className={style.icon_container}>
+        <SiWolfram className={style.icons} />
+      </div>
+    );
+  }
+
+  if (errMessage) {
+    return <h2>{errMessage}</h2>;
+  }
 
   return (
     <div className={containerStyle.root}>
       <GalleryTopic />
       <Container>
-        {errMessage ? (
-          <h2>{errMessage}</h2>
-        ) : (
-          <Grid columns={3}>
-            {artworkData?.map((artwork) => {
-              return (
-                <PictureCard
-                  src={artwork._links.image.href.replace(
-                    "{image_version}",
-                    "medium"
-                  )}
-                  alt={artwork.title}
-                  key={artwork.id}
-                  id={artwork.id}
-                />
-              );
-            })}
-          </Grid>
-        )}
-
-        {loading ? (
-          <div className={style.icon_container}>
-            <SiWolfram className={style.icons} />
-          </div>
-        ) : (
-          <div className={styles.root}>
-            <button type="button" className={styles.button} onClick={nextPage}>
-              Load next 6
-            </button>
-          </div>
-        )}
+        <Grid columns={3}>
+          {artworkData.map((artwork) => {
+            return (
+              <PictureCard
+                src={artwork._links.image.href.replace(
+                  "{image_version}",
+                  "medium"
+                )}
+                alt={artwork.title}
+                key={artwork.id}
+                id={artwork.id}
+              />
+            );
+          })}
+        </Grid>
+        <div className={styles.root}>
+          <button type="button" className={styles.button} onClick={nextPage}>
+            Load next 6
+          </button>
+        </div>
       </Container>
     </div>
   );

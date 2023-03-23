@@ -1,0 +1,69 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main_art {
+  max-width: 450px;
+}
+
+.main_art_image {
+  height: 100%;
+  width: 100%;
+}
+
+.image_info {
+  text-align: center;
+}
+
+.image_title {
+  font-size: 2rem;
+}
+
+.image_sub_info {
+  font-weight: 600;
+}
+
+.art_additional_info_container {
+  display: flex;
+  gap: 1rem;
+}
+
+.art_additional_info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.select {
+  border: none;
+  padding: 0.3rem;
+  background-color: rgb(220, 248, 242);
+}
+
+.similar_art_title {
+  font-size: 2rem;
+}
+
+.similar_art_images {
+  display: flex;
+  gap: 1rem;
+}
+
+.similar_art_container {
+  max-width: 200px;
+}
+
+.similar_art_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}

@@ -10,11 +10,15 @@ const Navbar = ({ pages }) => {
       <div className="navbar-link-container" style={styles}>
         {pages?.map((page) => {
           return (
-              <NavLink 
-              className={({ isActive }) => (isActive ? "link-active navbar-link-style" : "navbar-link-style")}
-              key={page.to} to={page.to}>
-                {page.label}
-              </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "link-active navbar-link-style" : "navbar-link-style"
+              }
+              key={page.to}
+              to={page.to}
+            >
+              {page.label}
+            </NavLink>
           );
         })}
       </div>
