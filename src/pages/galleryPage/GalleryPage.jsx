@@ -8,13 +8,8 @@ import containerStyle from "../../components/container/container.module.css";
 import { useImageData } from "./service/useImageData";
 import { SiWolfram } from "react-icons/si";
 
-const GalleryPage = ({ getArtwork }) => {
+const GalleryPage = () => {
   const { artworkData, errMessage, loading, nextPage } = useImageData();
-
-  //delete
-  if (artworkData) {
-    getArtwork(artworkData);
-  }
 
   if (loading) {
     return (

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
@@ -9,43 +9,21 @@ import CustomerSupportPage from "./pages/customerSupportPage/CustomerSupportPage
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage"
 import { routes } from "./components/constants/routes";
 import ArtworkPage from "./pages/ArtworkPage/ArtworkPage";
+import { navbarLinks } from "./components/navbar/navbarLinks/navbarLinks";
 
 function App() {
-  const [artworkArray, setArtwokArray] = useState([]);
 
-  //ISKELTI I KT FAILA
-  const headerLinks = useMemo(() => {
-    return [
-      {
-        to: routes.homePage,
-        label: "Home",
-      },
-      {
-        to: routes.gallery,
-        label: "Gallery",
-      },
-      {
-        to: routes.customerSupport,
-        label: "Customer support",
-      },
-    ];
-  }, [])
-
-  const artworkData = async (value) => {
-    const data = await value;
-    setArtwokArray(data);
-    console.log(`app getArtwork`, artworkArray)
-  }
+  const links = useMemo(() => navbarLinks, []);
 
   return (
     <div>
-      <Navbar pages={headerLinks} />
+      <Navbar pages={links} />
       <Layout >
         <Routes>
           <Route path={routes.homePage} element={<HomePage />} />
-          <Route path={routes.gallery} element={<GalleryPage getArtwork={artworkData} />} />
+          <Route path={routes.gallery} element={<GalleryPage />} />
+          <Route path={routes.artworkPage} element={<ArtworkPage />} />
           <Route path={routes.customerSupport} element={<CustomerSupportPage />} />
-          <Route path={routes.artworkPage} element={<ArtworkPage passArtworkData={artworkArray} />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Layout>
